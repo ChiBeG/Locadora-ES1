@@ -92,21 +92,4 @@ public class VeiculoDAO implements IVeiculoDAO{
         
         }
     }
-    @Override
-    public List<VeiculoDTO> findByModelo(String modelo) throws SQLException{
-        try(var conn = DBConnection.get();
-            var stmt = conn.prepareStatement("select * from veiculos where modelo = ?")){
-            
-            stmt.setString(1, modelo);
-            try (var rs = stmt.executeQuery()){
-                var mapper = new VeiculoMapper();
-                var veiculos = new ArrayList<VeiculoDTO>();
-            
-                while(rs.next())
-                    veiculos.add(mapper.map(rs));
-                return veiculos;
-            }
-
-        }
-    }
 }

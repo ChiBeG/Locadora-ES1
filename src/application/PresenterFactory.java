@@ -10,12 +10,15 @@ import ui.CadastroVeiculoPrt;
 import ui.CadastroVeiculoView;
 import ui.ListarClientesPrt;
 import ui.ListarClientesView;
+import ui.ListarVeiculosPrt;
+import ui.ListarVeiculosView;
 import ui.MenuPresenter;
 import ui.MenuView;
 import ui.Presenter;
 import usecases.CadastroClienteCtrl;
 import usecases.CadastroVeiculoCtrl;
 import usecases.ListarClientesCtrl;
+import usecases.ListarVeiculosCtrl;
 
 /**
  * Classe responsável por criar os presenters e sua estrutura
@@ -29,7 +32,8 @@ public class PresenterFactory {
 		               CADASTRAR_CLIENTE, 
 		               EXCLUIR_CLIENTE, 
 		               LISTAR_CLIENTE,
-					   CADASTRAR_VEICULO };
+					   CADASTRAR_VEICULO,
+					   LISTAR_VEICULO };
 	
     /**
      * Cria um presenter de acordo com o tipo solicitado
@@ -72,6 +76,14 @@ public class PresenterFactory {
 				var controller = new CadastroVeiculoCtrl(repository);
 
 				return new CadastroVeiculoPrt(view, controller);
+			}
+
+			case LISTAR_VEICULO -> {
+				var repository = new VeiculoRepository(new VeiculoDAO());
+				var view = new ListarVeiculosView();
+				var controller = new ListarVeiculosCtrl(repository);
+
+				return new ListarVeiculosPrt(view, controller);
 			}
 		};
 		return null;
