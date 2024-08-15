@@ -13,20 +13,21 @@ public class ListarVeiculosView {
         if (veiculos.isEmpty())
             System.out.println("\nNão há veículos cadastrados");
         else{
-            System.out.println("\n-----------------------------------------------------------");
-            System.out.println("Placa       Modelo                  Ano         Diária     Km");
-            System.out.println("-----------------------------------------------------------");
+            System.out.println("\n------------------------------------------------------------------");
+            System.out.println("Placa	 Modelo                  	Ano      Diária         Km");
+         //                     AAA-9999 xxxxxxxx_30_caracteres_xxxxxxx 9999 9999,99 999999
+            System.out.println("------------------------------------------------------------------");
 
 
             for (var v : veiculos){
-                System.out.printf("%s %-30s %d %s %d\n",
+                System.out.printf("%s %-30s %4d %10s %10d\n",
                                     formataPlaca(v.getPlaca().codigo),
                                     v.getModelo(),
                                     v.getAnoFabricacao(),
                                     formataDiaria(v.getDiaria()),
                                     v.getQuilometragem());
             }
-            System.out.println("-----------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------");
         }
     }
 
