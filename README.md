@@ -1,18 +1,18 @@
 ﻿# Locadora-ES1
 ## Funcionalidades a ser implementadas:
 
-### Exclusão de Cliente
+### Exclusão de Cliente [ ]
 
 a) Deve ser solicitado o CPF do cliente.
 b) Ao final, deve ser apresentada a mensagem “Exclusão bem-sucedida” ou “Cliente não 
 encontrado”.
 
-### Listar Clientes
+### Listar Clientes [ ]
 a) Alterar a funcionalidade para, inicialmente, ler do usuário a ordenação desejada: C-CPF ou NNome.
 b) A lista de clientes deve ser apresentada de acordo com essa ordenação.
 
 
-### Inclusão de Veículos
+### Inclusão de Veículos [x]
 a) Placa: deve ter o formato AAA9999 onde AAA são letras (A-Z ou a-z) e 9999 são dígitos.
 Letras devem ser convertidas para caixa alta.
 b) Modelo: 3 a 30 caracteres.
@@ -26,7 +26,7 @@ a) Deve ser solicitada a placa.
 b) Ao final, deve ser apresentada a mensagem “Exclusão bem-sucedida” ou “Veículo não 
 encontrado”.
 
-### Listar Veículos
+### Listar Veículos [ ]
 a) Ler do usuário a ordenação desejada: P-Placa ou M-Modelo.
 b) A lista de veículos deve ser apresentada de acordo com essa ordenação.
 c) A formatação da lista deve seguir o padrão definido a seguir.
@@ -35,12 +35,12 @@ c) A formatação da lista deve seguir o padrão definido a seguir.
  -----------------------------------------------------------
  AAA-9999 xxxxxxxx_30_caracteres_xxxxxxx 9999 9999,99 999999
 
-### Locar Veículo
+### Locar Veículo [ ]
 a) Deve ser solicitado o CPF do cliente e a placa do veículo.
 b) Ao final, são esperadas as seguintes mensagens: “Cliente não encontrado”, “Veículo não 
 encontrado” ou “Locação bem-sucedida”.
 
-### Listar Locações
+### Listar Locações [ ]
 a) A formatação da lista deve seguir o padrão definido a seguir.
  --------------------------------------------------------------------------------
  CPF Nome Placa Modelo Data/hora
