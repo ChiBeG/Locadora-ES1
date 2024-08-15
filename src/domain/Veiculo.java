@@ -41,10 +41,10 @@ public class Veiculo extends Persistent{
 		if (!(anoFabricacao >= 2000 && anoFabricacao <= currentYear))
 			erros.add(Erro.ANO_FABRICACAO_INVALIDO);
 
-		if (diaria < 0)
+		if (diaria <= 0)
 			erros.add(Erro.DIARIA_INVALIDA);
 		
-		if (quilometragem < 0)
+		if (quilometragem <= 0)
 			erros.add(Erro.QUILOMETRAGEM_INVALIDA);
 
 		return erros.isEmpty() ? Resultado.ok(new Veiculo(placa, modelo, anoFabricacao, diaria, quilometragem)) :
