@@ -45,8 +45,5 @@ public class CadastroVeiculoCtrl {
         }catch (SQLException e){
             return List.of(Erro.ERRO_BD);
         }
-
-
-        return 
     }
 }

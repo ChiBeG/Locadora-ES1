@@ -1,3 +1,4 @@
+-- database: d:\Pedro\Documents\Eclipse Projects\Locadora\locadora.db
 CREATE TABLE clientes (
 	
 	id 			varchar (36) 	PRIMARY KEY, 

@@ -14,7 +14,6 @@ public interface IVeiculoDAO {
     List<VeiculoDTO> findAll() throws SQLException;
 
     VeiculoDTO findByPlaca(String codigoPlaca) throws SQLException;
-    
-    List<VeiculoDTO> findByModelo(String modelo) throws SQLException;
+
 
 }

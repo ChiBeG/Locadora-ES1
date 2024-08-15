@@ -37,16 +37,6 @@ public class VeiculoRepository implements Repository{
         return null;
     }
 
-    public List<Veiculo> findByModelo(String modelo) throws SQLException{
-
-        var dtos = dao.findByModelo(modelo);
-        var veiculos = new ArrayList<Veiculo>();
-        for (var dto : dtos)
-            veiculos.add(create(dto));
-        return veiculos;
-    }
-
-
     public void add (Veiculo veiculo) throws SQLException{
         if (veiculo.getId() == null){
             veiculo.setId(UUID.randomUUID().toString());

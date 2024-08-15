@@ -15,7 +15,7 @@ public class Placa {
 	}
 	
 	public static boolean isValid(String codigo) {
-		Pattern pattern = Pattern.compile("[A-Za-z]{3}[0-9]{4}$");
+		Pattern pattern = Pattern.compile("^[A-Za-z]{3}[0-9]{4}$");
 		Matcher matcher = pattern.matcher(codigo);
 		return matcher.find();
 	}

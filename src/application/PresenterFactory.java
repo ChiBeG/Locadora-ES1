@@ -1,15 +1,20 @@
 package application;
 
 import domain.ClienteRepository;
+import domain.VeiculoRepository;
 import persistence.ClienteDAO;
+import persistence.VeiculoDAO;
 import ui.CadastroClientePrt;
 import ui.CadastroClienteView;
+import ui.CadastroVeiculoPrt;
+import ui.CadastroVeiculoView;
 import ui.ListarClientesPrt;
 import ui.ListarClientesView;
 import ui.MenuPresenter;
 import ui.MenuView;
 import ui.Presenter;
 import usecases.CadastroClienteCtrl;
+import usecases.CadastroVeiculoCtrl;
 import usecases.ListarClientesCtrl;
 
 /**
@@ -23,7 +28,8 @@ public class PresenterFactory {
 	public enum Type { MENU, 
 		               CADASTRAR_CLIENTE, 
 		               EXCLUIR_CLIENTE, 
-		               LISTAR_CLIENTE };
+		               LISTAR_CLIENTE,
+					   CADASTRAR_VEICULO };
 	
     /**
      * Cria um presenter de acordo com o tipo solicitado
@@ -58,6 +64,14 @@ public class PresenterFactory {
 				var controller = new ListarClientesCtrl(repository);
 
 				return new ListarClientesPrt(view, controller);
+			}
+
+			case CADASTRAR_VEICULO -> {
+				var repository = new VeiculoRepository(new VeiculoDAO());
+				var view = new CadastroVeiculoView();
+				var controller = new CadastroVeiculoCtrl(repository);
+
+				return new CadastroVeiculoPrt(view, controller);
 			}
 		};
 		return null;
