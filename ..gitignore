@@ -2,3 +2,6 @@ locadora.db
 locadora.sql
 bin
 Main.java
+.project
+.classpath
+.settings
