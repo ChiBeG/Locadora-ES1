@@ -43,7 +43,10 @@ public class MenuPresenter implements Presenter {
 				
 				
 				}
-				case EXCLUIR_VEICULO 	-> { System.out.println("Não implementado!"); }
+				case EXCLUIR_VEICULO 	-> { 
+					var presenter = PresenterFactory.get(PresenterFactory.Type.EXCLUIR_VEICULO);
+					presenter.run();
+				 }
 				
 				case LISTAR_VEICULO 	-> { 
 					var presenter = PresenterFactory.get(PresenterFactory.Type.LISTAR_VEICULO);
