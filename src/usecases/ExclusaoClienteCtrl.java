@@ -31,7 +31,7 @@ public class ExclusaoClienteCtrl {
             
             // 2 - Verifica se o cliente existe
             if (cliente == null) {
-                return List.of(Erro.CPF_INVALIDO); // Ou você pode criar um erro específico como CLIENTE_NAO_ENCONTRADO
+                return List.of(Erro.CLIENTE_NAO_ENCONTRADO);
             }
             
             // 3 - Remove o cliente do repositório

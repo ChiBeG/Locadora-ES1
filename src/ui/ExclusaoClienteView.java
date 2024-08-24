@@ -14,7 +14,7 @@ public class ExclusaoClienteView {
      * Lê o CPF do cliente a ser excluído
      * @return CPF do cliente
      */
-    public Long readCPF() {
+    public String readCPF() {
         var input = new Scanner(System.in);
 
         System.out.println("\n--------------------");
@@ -22,7 +22,7 @@ public class ExclusaoClienteView {
         System.out.println("--------------------");
         
         System.out.print("CPF: ");
-        Long cpf = input.nextLong();
+        String cpf = input.nextLine();
         
         return cpf;
     }
@@ -35,7 +35,7 @@ public class ExclusaoClienteView {
         System.out.println("\nErro na exclusão:");
         for (var erro : erros) {
             switch (erro) {
-                case CPF_INVALIDO -> System.out.println("- CPF inválido!");
+                case CLIENTE_NAO_ENCONTRADO -> System.out.println("- Cliente não encontrado!");
                 case ERRO_BD      -> System.out.println("- Erro inesperado. Tente novamente mais tarde ou procure o suporte.");
                 // Adicione outros erros que sejam relevantes para exclusão
             }
@@ -48,12 +48,5 @@ public class ExclusaoClienteView {
      */
     public void setSucesso() {
         System.out.println("\nExclusão realizada com sucesso!");
-    }
-
-    /**
-     * Imprime mensagem de cliente não encontrado
-     */
-    public void setClienteNaoEncontrado() {
-        System.out.println("\nCliente não encontrado!");
     }
 }

@@ -25,18 +25,14 @@ public class ExclusaoVeiculoPrt implements Presenter {
         
         do {
             // 1 - Lê a placa da view
-            placa = view.readPlaca();
+            placa = view.readPlaca().toUpperCase();
             
             // 2 - Entrega a placa para o controller processar a exclusão
             erros = controller.excluirVeiculoPorPlaca(placa);
             
             // 3 - Verificar o status do processamento
             if (erros != null) {
-                if (erros.contains(Erro.PLACA_INVALIDA)) {
-                    view.setVeiculoNaoEncontrado();
-                } else {
-                    view.setErros(erros);
-                }
+                view.setErros(erros);
             } else {
                 view.setSucesso();
             }

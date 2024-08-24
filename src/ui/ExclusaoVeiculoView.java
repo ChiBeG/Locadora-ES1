@@ -21,7 +21,7 @@ public class ExclusaoVeiculoView {
         System.out.println("--------------------");
         
         System.out.print("Placa: ");
-        return input.nextLine().toUpperCase();
+        return input.nextLine();
     }
     
     /**
@@ -32,7 +32,7 @@ public class ExclusaoVeiculoView {
         System.out.println("\nErro na exclusão:");
         for (var erro : erros) {
             switch (erro) {
-                case PLACA_INVALIDA -> System.out.println("- Placa inválida!");
+                case VEICULO_NAO_ENCONTRADO -> System.out.println("- Veículo não encontrado!");
                 case ERRO_BD        -> System.out.println("- Erro inesperado. Tente novamente mais tarde ou procure o suporte.");
                 // Adicione outros erros que sejam relevantes para exclusão
             }
@@ -45,12 +45,5 @@ public class ExclusaoVeiculoView {
      */
     public void setSucesso() {
         System.out.println("\nExclusão realizada com sucesso!");
-    }
-
-    /**
-     * Imprime mensagem de veículo não encontrado
-     */
-    public void setVeiculoNaoEncontrado() {
-        System.out.println("\nVeículo não encontrado!");
     }
 }

@@ -29,9 +29,9 @@ public class ExclusaoVeiculoCtrl {
             // 1 - Busca o veículo pela placa
             Veiculo veiculo = repo.findByPlaca(placa);
             
-            // 2 - Verifica se o veículo existe
+            // 2 - Verifica se o veículo existe 
             if (veiculo == null) {
-                return List.of(Erro.PLACA_INVALIDA); // Ou você pode criar um erro específico como VEICULO_NAO_ENCONTRADO
+                return List.of(Erro.VEICULO_NAO_ENCONTRADO);
             }
             
             // 3 - Remove o veículo do repositório

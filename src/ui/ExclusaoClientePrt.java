@@ -25,18 +25,14 @@ public class ExclusaoClientePrt implements Presenter {
         
         do {
             // 1 - Lê o CPF da view
-            cpf = view.readCPF();
+            cpf = Long.parseLong(view.readCPF());
             
             // 2 - Entrega o CPF para o controller processar a exclusão
             erros = controller.excluirClientePorCPF(cpf);
             
             // 3 - Verificar o status do processamento
             if (erros != null) {
-                if (erros.contains(Erro.CPF_INVALIDO)) {
-                    view.setClienteNaoEncontrado();
-                } else {
-                    view.setErros(erros);
-                }
+                view.setErros(erros);
             } else {
                 view.setSucesso();
             }

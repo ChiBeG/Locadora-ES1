@@ -8,6 +8,10 @@ import ui.CadastroClientePrt;
 import ui.CadastroClienteView;
 import ui.CadastroVeiculoPrt;
 import ui.CadastroVeiculoView;
+import ui.ExclusaoClientePrt;
+import ui.ExclusaoClienteView;
+import ui.ExclusaoVeiculoView;
+import ui.ExclusaoVeiculoPrt;
 import ui.ListarClientesPrt;
 import ui.ListarClientesView;
 import ui.ListarVeiculosPrt;
@@ -19,6 +23,8 @@ import usecases.CadastroClienteCtrl;
 import usecases.CadastroVeiculoCtrl;
 import usecases.ListarClientesCtrl;
 import usecases.ListarVeiculosCtrl;
+import usecases.ExclusaoClienteCtrl;
+import usecases.ExclusaoVeiculoCtrl;
 
 /**
  * Classe responsável por criar os presenters e sua estrutura
@@ -33,7 +39,8 @@ public class PresenterFactory {
 		               EXCLUIR_CLIENTE, 
 		               LISTAR_CLIENTE,
 					   CADASTRAR_VEICULO,
-					   LISTAR_VEICULO };
+					   LISTAR_VEICULO,
+					   EXCLUIR_VEICULO };
 	
     /**
      * Cria um presenter de acordo com o tipo solicitado
@@ -59,7 +66,11 @@ public class PresenterFactory {
 			}
 		
 			case EXCLUIR_CLIENTE -> {
-				return null;
+				var repository = new ClienteRepository(new ClienteDAO());
+				var view = new ExclusaoClienteView();
+				var controller = new ExclusaoClienteCtrl(repository);
+
+				return new ExclusaoClientePrt(view, controller);
 			}
 		
 			case LISTAR_CLIENTE -> {
@@ -84,6 +95,14 @@ public class PresenterFactory {
 				var controller = new ListarVeiculosCtrl(repository);
 
 				return new ListarVeiculosPrt(view, controller);
+			}
+
+			case EXCLUIR_VEICULO -> {
+				var repository = new VeiculoRepository(new VeiculoDAO());
+				var view = new ExclusaoVeiculoView();
+				var controller = new ExclusaoVeiculoCtrl(repository);
+
+				return new ExclusaoVeiculoPrt(view, controller);
 			}
 		};
 		return null;
