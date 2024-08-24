@@ -25,9 +25,10 @@ public class ListarClientesCtrl {
 	 * 
 	 * @return Lista de clientes ou erro de acesso ao BD
 	 */
-	public Resultado<List<Cliente>> recuperarTodosClientes() {
+	public Resultado<List<Cliente>> recuperarTodosClientes(String ordenacao) {
+		
 		try {
-			var clientes = repo.findAll();
+			var clientes = repo.findAll(ordenacao);
 			
 			return Resultado.ok(clientes);
 		} catch (SQLException e) {

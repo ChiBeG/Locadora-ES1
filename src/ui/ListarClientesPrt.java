@@ -1,5 +1,9 @@
 package ui;
 
+import java.util.List;
+
+import domain.Cliente;
+import domain.Resultado;
 import usecases.ListarClientesCtrl;
 
 public class ListarClientesPrt implements Presenter {
@@ -15,12 +19,21 @@ public class ListarClientesPrt implements Presenter {
 
 	@Override
 	public void run() {
-		var resultado = controller.recuperarTodosClientes();
+		
+		var ordenacao = view.readOrdenacao();
+		
+		switch (ordenacao) {
+			case "C" -> ordenacao = "cpf";
+			case "N" -> ordenacao = "nome";
+		}
+
+		var resultado = controller.recuperarTodosClientes(ordenacao);
 		
 		if (resultado.sucesso())
 			view.mostrarClientes(resultado.valor);
 		else
 			view.mostrarErro();
+	
 	}
 }
 

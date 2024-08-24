@@ -34,7 +34,6 @@ public class ExclusaoVeiculoView {
             switch (erro) {
                 case VEICULO_NAO_ENCONTRADO -> System.out.println("- Veículo não encontrado!");
                 case ERRO_BD        -> System.out.println("- Erro inesperado. Tente novamente mais tarde ou procure o suporte.");
-                // Adicione outros erros que sejam relevantes para exclusão
             }
         }
         System.out.println();

@@ -16,6 +16,8 @@ import ui.ListarClientesPrt;
 import ui.ListarClientesView;
 import ui.ListarVeiculosPrt;
 import ui.ListarVeiculosView;
+import ui.LocarVeiculoPrt;
+import ui.LocarVeiculoView;
 import ui.MenuPresenter;
 import ui.MenuView;
 import ui.Presenter;
@@ -25,6 +27,8 @@ import usecases.ListarClientesCtrl;
 import usecases.ListarVeiculosCtrl;
 import usecases.ExclusaoClienteCtrl;
 import usecases.ExclusaoVeiculoCtrl;
+import usecases.LocarVeiculoCtrl;
+import usecases.ListarLocacoesCtrl;
 
 /**
  * Classe responsável por criar os presenters e sua estrutura
@@ -40,7 +44,9 @@ public class PresenterFactory {
 		               LISTAR_CLIENTE,
 					   CADASTRAR_VEICULO,
 					   LISTAR_VEICULO,
-					   EXCLUIR_VEICULO };
+					   EXCLUIR_VEICULO,
+					   LOCAR_VEICULO,
+					   LISTAR_LOCACACOES };
 	
     /**
      * Cria um presenter de acordo com o tipo solicitado
@@ -104,6 +110,23 @@ public class PresenterFactory {
 
 				return new ExclusaoVeiculoPrt(view, controller);
 			}
+
+			case LOCAR_VEICULO -> {
+				var clienteRepository = new ClienteRepository(new ClienteDAO());
+				var veiculoRepository = new VeiculoRepository(new VeiculoDAO());
+				var view = new LocarVeiculoView();
+				var controller = new LocarVeiculoCtrl(clienteRepository, veiculoRepository);
+
+				return new LocarVeiculoPrt(view, controller);
+			}
+
+			// case LISTAR_LOCACACOES -> {
+			// 	var repository = new LocacaoRepository(new LocacaoDAO());
+			// 	var view = new ListarLocacoesView();
+			// 	var controller = new ListarLocacoesCtrl(repository);
+
+			// 	return new ListarLocacoesPrt(view, controller);
+			// }
 		};
 		return null;
 	}

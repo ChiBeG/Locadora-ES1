@@ -16,7 +16,7 @@ public interface IClienteDAO {
 
 	void delete(Cliente cliente) throws SQLException;
 
-	List<ClienteDTO> findAll() throws SQLException;
+	List<ClienteDTO> findAll(String ordenacao) throws SQLException;
 
 	ClienteDTO findByCPF(Long cpf) throws SQLException;
 

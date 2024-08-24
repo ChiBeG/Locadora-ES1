@@ -19,9 +19,9 @@ public class ListarVeiculosCtrl {
         this.repo = repo;
     }
 
-    public Resultado<List<Veiculo>> recuperarTodosVeiculos(){
+    public Resultado<List<Veiculo>> recuperarTodosVeiculos(String ordenacao){
         try{
-            var veiculos = repo.findAll();
+            var veiculos = repo.findAll(ordenacao);
 
             return Resultado.ok(veiculos);
         } catch(SQLException e){

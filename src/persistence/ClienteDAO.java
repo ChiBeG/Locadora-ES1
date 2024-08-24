@@ -113,14 +113,16 @@ public class ClienteDAO implements IClienteDAO {
 	 * @throws SQLException Exceção em caso de problemas no acesso ao BD
 	 */
 	@Override
-	public List<ClienteDTO> findAll() throws SQLException  {
+	public List<ClienteDTO> findAll(String ordenacao) throws SQLException  {
 		
 		// Abre uma conexão com o BD
 		// Cria um statement
 		// Executa o comando que retorna um ResultSet
+		String querry = "select * from clientes order by " + ordenacao;
+	
 		try (var conn = DBConnection.get(); 
 			 var stmt = conn.createStatement();
-		     var rs = stmt.executeQuery("select * from clientes")) {
+			 var rs = stmt.executeQuery(querry)) {
 				
 			var mapper = new ClienteMapper();
 			var clientes = new ArrayList<ClienteDTO>();

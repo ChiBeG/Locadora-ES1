@@ -17,9 +17,9 @@ public class VeiculoRepository implements Repository{
 
 
 
-    public List<Veiculo> findAll() throws SQLException{
+    public List<Veiculo> findAll(String ordenacao) throws SQLException{
         
-        var dtos = dao.findAll();
+        var dtos = dao.findAll(ordenacao);
 
         var veiculos = new ArrayList<Veiculo>();
         for (var dto : dtos)

@@ -3,12 +3,33 @@ package ui;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import domain.Cliente;
 
 public class ListarClientesView {
 
+	public String readOrdenacao(){
+		var input = new Scanner(System.in);
+		String ordenacao;
+		boolean loop;
+		do{
+			System.out.println("\n--------------------");
+			System.out.println("Listagem de Clientes");
+			System.out.println("--------------------");
+
+			System.out.println("Insira a ordenação desejada (C-CPF ou N-Nome): ");
+			ordenacao = input.nextLine().trim().toUpperCase();
+			
+			loop = (!ordenacao.equals("C") && !ordenacao.equals("N"));
+			if (loop)
+				System.out.println("Ordenação inválida!");
+		}while(loop);
+		
+		return ordenacao;
+	}
+	
 	public void mostrarClientes(List<Cliente> clientes) {
 		
 		if (clientes.isEmpty())

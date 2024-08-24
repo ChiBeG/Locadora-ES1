@@ -58,10 +58,12 @@ public class VeiculoDAO implements IVeiculoDAO{
         }
     }
     @Override
-    public List<VeiculoDTO> findAll() throws SQLException{
+    public List<VeiculoDTO> findAll(String ordenacao) throws SQLException{
+        
+        String querry = "select * from veiculos order by " + ordenacao;
         try(var conn = DBConnection.get();
             var stmt = conn.createStatement();
-            var rs = stmt.executeQuery("select * from veiculos")){
+            var rs = stmt.executeQuery(querry)){
             
             var mapper = new VeiculoMapper();
             var veiculos = new ArrayList<VeiculoDTO>();

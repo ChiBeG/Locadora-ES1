@@ -11,7 +11,7 @@ public interface IVeiculoDAO {
     void update(Veiculo veiculo) throws SQLException;
     void delete(Veiculo veiculo) throws SQLException;
 
-    List<VeiculoDTO> findAll() throws SQLException;
+    List<VeiculoDTO> findAll(String ordenacao) throws SQLException;
 
     VeiculoDTO findByPlaca(String codigoPlaca) throws SQLException;
 

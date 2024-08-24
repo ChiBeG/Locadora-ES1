@@ -14,7 +14,15 @@ public class ListarVeiculosPrt implements Presenter{
 
     @Override
     public void run(){
-        var resultado = controller.recuperarTodosVeiculos();
+        
+        var ordenacao = view.readOrdenacao();
+
+        switch (ordenacao) {
+			case "P" -> ordenacao = "placa";
+			case "M" -> ordenacao = "modelo";
+		}
+
+        var resultado = controller.recuperarTodosVeiculos(ordenacao);
 
         if(resultado.sucesso())
             view.mostrarVeiculos(resultado.valor);

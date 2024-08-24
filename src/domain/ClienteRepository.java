@@ -25,9 +25,9 @@ public class ClienteRepository implements Repository {
 	 * @return Lista de clientes
 	 * @throws SQLException Exceção em caso de problemas no acesso ao BD
 	 */
-	public List<Cliente> findAll() throws SQLException  {
+	public List<Cliente> findAll(String ordenacao) throws SQLException  {
 		// Busca todos os clientes do repositório
-		var dtos = dao.findAll();
+		var dtos = dao.findAll(ordenacao);
 		
 		// Converte os DTOs vindo do repositório em clientes
 		var clientes = new ArrayList<Cliente>();
