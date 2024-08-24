@@ -3,7 +3,7 @@ package domain.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import domain.Veiculo;
+import domain.veiculo.Veiculo;
 
 public interface IVeiculoDAO {
     
@@ -14,6 +14,7 @@ public interface IVeiculoDAO {
     List<VeiculoDTO> findAll(String ordenacao) throws SQLException;
 
     VeiculoDTO findByPlaca(String codigoPlaca) throws SQLException;
+    VeiculoDTO findById(String id) throws SQLException;
 
 
 }

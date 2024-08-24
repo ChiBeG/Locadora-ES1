@@ -1,34 +1,36 @@
 package application;
 
-import domain.ClienteRepository;
-import domain.VeiculoRepository;
+import domain.cliente.ClienteRepository;
+import domain.locacao.LocacaoRepository;
+import domain.veiculo.VeiculoRepository;
 import persistence.ClienteDAO;
+import persistence.LocacaoDAO;
 import persistence.VeiculoDAO;
-import ui.CadastroClientePrt;
-import ui.CadastroClienteView;
-import ui.CadastroVeiculoPrt;
-import ui.CadastroVeiculoView;
-import ui.ExclusaoClientePrt;
-import ui.ExclusaoClienteView;
-import ui.ExclusaoVeiculoView;
-import ui.ExclusaoVeiculoPrt;
-import ui.ListarClientesPrt;
-import ui.ListarClientesView;
-import ui.ListarVeiculosPrt;
-import ui.ListarVeiculosView;
-import ui.LocarVeiculoPrt;
-import ui.LocarVeiculoView;
 import ui.MenuPresenter;
 import ui.MenuView;
 import ui.Presenter;
-import usecases.CadastroClienteCtrl;
-import usecases.CadastroVeiculoCtrl;
-import usecases.ListarClientesCtrl;
-import usecases.ListarVeiculosCtrl;
-import usecases.ExclusaoClienteCtrl;
-import usecases.ExclusaoVeiculoCtrl;
-import usecases.LocarVeiculoCtrl;
-import usecases.ListarLocacoesCtrl;
+import ui.cliente.CadastroClientePrt;
+import ui.cliente.CadastroClienteView;
+import ui.cliente.ExclusaoClientePrt;
+import ui.cliente.ExclusaoClienteView;
+import ui.cliente.ListarClientesPrt;
+import ui.cliente.ListarClientesView;
+import ui.locacao.LocarVeiculoPrt;
+import ui.locacao.LocarVeiculoView;
+import ui.veiculo.CadastroVeiculoPrt;
+import ui.veiculo.CadastroVeiculoView;
+import ui.veiculo.ExclusaoVeiculoPrt;
+import ui.veiculo.ExclusaoVeiculoView;
+import ui.veiculo.ListarVeiculosPrt;
+import ui.veiculo.ListarVeiculosView;
+import usecases.cliente.CadastroClienteCtrl;
+import usecases.cliente.ExclusaoClienteCtrl;
+import usecases.cliente.ListarClientesCtrl;
+import usecases.locacao.ListarLocacoesCtrl;
+import usecases.locacao.LocarVeiculoCtrl;
+import usecases.veiculo.CadastroVeiculoCtrl;
+import usecases.veiculo.ExclusaoVeiculoCtrl;
+import usecases.veiculo.ListarVeiculosCtrl;
 
 /**
  * Classe responsável por criar os presenters e sua estrutura
@@ -114,8 +116,9 @@ public class PresenterFactory {
 			case LOCAR_VEICULO -> {
 				var clienteRepository = new ClienteRepository(new ClienteDAO());
 				var veiculoRepository = new VeiculoRepository(new VeiculoDAO());
+				var locacaoRepository = new LocacaoRepository(new LocacaoDAO());
 				var view = new LocarVeiculoView();
-				var controller = new LocarVeiculoCtrl(clienteRepository, veiculoRepository);
+				var controller = new LocarVeiculoCtrl(clienteRepository, veiculoRepository, locacaoRepository);
 
 				return new LocarVeiculoPrt(view, controller);
 			}

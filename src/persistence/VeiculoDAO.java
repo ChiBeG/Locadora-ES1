@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Veiculo;
 import domain.dao.IVeiculoDAO;
 import domain.dao.VeiculoDTO;
+import domain.veiculo.Veiculo;
 
 public class VeiculoDAO implements IVeiculoDAO{
     
@@ -94,4 +94,23 @@ public class VeiculoDAO implements IVeiculoDAO{
         
         }
     }
+    @Override 
+    public VeiculoDTO findById(String id) throws SQLException{
+        try (var conn = DBConnection.get(); 
+        var stmt = conn.prepareStatement("select * from veiculos where id = ?")){
+
+            stmt.setString(1, id);
+
+            try(var rs = stmt.executeQuery()){
+
+                var mapper = new VeiculoMapper();
+
+                if (rs.next())
+                    return mapper.map(rs);
+
+                return null;
+            }
+        }
+    }
 }
+

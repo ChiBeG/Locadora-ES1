@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Cliente;
+import domain.cliente.Cliente;
 import domain.dao.ClienteDTO;
 import domain.dao.IClienteDAO;
 
@@ -165,6 +165,29 @@ public class ClienteDAO implements IClienteDAO {
 					return mapper.map(rs);
 				
 				// Se não existe, retorna nulo
+				return null;
+			}
+		}
+	}
+
+	@Override
+	public ClienteDTO findById(String id) throws SQLException{
+		try (var conn = DBConnection.get(); 
+			 var stmt = conn.prepareStatement("select * from clientes where id = ?")) {
+			
+		
+			stmt.setString(1, id);
+			
+		
+			try (var rs = stmt.executeQuery()) {
+				
+				var mapper = new ClienteMapper();
+				
+			
+				if (rs.next())
+					return mapper.map(rs);
+				
+				
 				return null;
 			}
 		}

@@ -3,7 +3,7 @@ package domain.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import domain.Cliente;
+import domain.cliente.Cliente;
 
 /**
  * Interface que representa as possíveis operações no BD
@@ -19,5 +19,7 @@ public interface IClienteDAO {
 	List<ClienteDTO> findAll(String ordenacao) throws SQLException;
 
 	ClienteDTO findByCPF(Long cpf) throws SQLException;
+
+	ClienteDTO findById(String id) throws SQLException;
 
 }
