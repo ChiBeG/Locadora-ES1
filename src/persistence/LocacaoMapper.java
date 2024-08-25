@@ -12,7 +12,7 @@ public class LocacaoMapper {
 
     public LocacaoDTO map(ResultSet rs) throws SQLException{
         
-        var df = DateTimeFormatter.ofPattern("yyyyMMdd");
+        var df = DateTimeFormatter.ofPattern("yyyyMMdd HHmm");
         
         return new LocacaoDTO(rs.getString("id"),
                                rs.getString("idCliente"), 

@@ -17,25 +17,26 @@ public class ListarLocacoesView {
         if (locacoes.isEmpty()) {
             System.out.println("\nNão há locações registradas.");
         } else {
-            System.out.println("\n--------------------------------------------------------------------------------");
-            System.out.println("CPF            Nome                           Placa    Modelo                         Data/Hora");
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("\n------------------------------------------------------------------------------------------------------");
+            System.out.println("CPF            Nome                           Placa    Modelo                          Data/hora");
+            //                 999.999.999-99 xx_30_caracteres_xx AAA-9999 xx_30_caracteres_xx 99/99/9999 99:99
+            System.out.println("------------------------------------------------------------------------------------------------------");
 
             for (var locacao : locacoes) {
                 var cliente = locacao.getCliente();
                 var veiculo = locacao.getVeiculo();
                 var dataHora = locacao.getData();
 
-                System.out.printf("%s %-30s %-8s %-30s %s\n",
+                System.out.printf("%14s %-30s %-8s %-30s %s\n",
                         formataCPF(cliente.getCpf().valor),
                         cortaTexto(cliente.getNome(), 30),
-                        veiculo.getPlaca().codigo,
+                        formataPlaca(veiculo.getPlaca().codigo),
                         cortaTexto(veiculo.getModelo(), 30),
                         formataDataHora(dataHora)
                 );
             }
 
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------");
         }
     }
 
@@ -53,6 +54,10 @@ public class ListarLocacoesView {
     private String formataDataHora(java.time.LocalDateTime dataHora) {
         var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         return dataHora.format(formatter);
+    }
+
+    private String formataPlaca(String codigoPlaca){
+        return codigoPlaca.replaceAll("([A-Za-z]{3})([0-9]{4})", "$1-$2");
     }
 
     private String cortaTexto(String texto, int tamanhoMaximo) {
