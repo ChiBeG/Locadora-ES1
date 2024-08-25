@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * Classe usada para transportar dados do ClienteDAO para o ClienteRepository
  */
 public record ClienteDTO(String id, 
-		                 Long cpf, 
+		                 String cpf, 
 		                 String nome, 
 		                 LocalDate dtNasc,
 		                 String logradouro,

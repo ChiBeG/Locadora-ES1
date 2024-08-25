@@ -18,7 +18,7 @@ public interface IClienteDAO {
 
 	List<ClienteDTO> findAll(String ordenacao) throws SQLException;
 
-	ClienteDTO findByCPF(Long cpf) throws SQLException;
+	ClienteDTO findByCPF(String cpf) throws SQLException;
 
 	ClienteDTO findById(String id) throws SQLException;
 

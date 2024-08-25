@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * DTO usado para transportar os dados do PRESENTER para o CONTROLLER
  */
-public record ClienteRequest(Long cpf, 
+public record ClienteRequest(String cpf, 
 		                     String nome, 
 		                     LocalDate dtNasc,
 		                     String logradouro,

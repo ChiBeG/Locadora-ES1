@@ -44,7 +44,7 @@ public class Cliente extends Persistent {
 	 * @param telefone Telefone
 	 * @return Cliente ou lista de códigos de erro
 	 */
-	public static Resultado<Cliente> create(Long numeroCPF, 
+	public static Resultado<Cliente> create(String numeroCPF, 
 			                                String nome, 
 			                                LocalDate dtNasc,
 			                                Endereco endereco,

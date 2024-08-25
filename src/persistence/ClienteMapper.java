@@ -23,7 +23,7 @@ public class ClienteMapper {
 		var df = DateTimeFormatter.ofPattern("yyyyMMdd");
 		
 		return new ClienteDTO(rs.getString("id"), 
-	                          rs.getLong("cpf"), 
+	                          rs.getString("cpf"), 
 	                          rs.getString("nome"),
 	                          LocalDate.from(df.parse(rs.getString("datanasc"))),
 	                          rs.getString("logradouro"),

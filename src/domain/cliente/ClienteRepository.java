@@ -46,7 +46,7 @@ public class ClienteRepository implements Repository {
 	 * @return Cliente ou null, se não existir
 	 * @throws SQLException Exceção em caso de problemas no acesso ao BD
 	 */
-	public Cliente findByCPF(Long cpf) throws SQLException  {
+	public Cliente findByCPF(String cpf) throws SQLException  {
 		// Busca o cliente no repositório
 		var dto = dao.findByCPF(cpf);
 		

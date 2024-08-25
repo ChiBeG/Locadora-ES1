@@ -47,8 +47,8 @@ public class ListarLocacoesView {
         System.out.println("Erro no acesso aos dados. Tente novamente ou procure o suporte!");
     }
 
-    private String formataCPF(Long cpf) {
-        return Pattern.compile("(\\d{3})(\\d{3})(\\d{3})(\\d{2})").matcher(cpf.toString()).replaceAll("$1.$2.$3-$4");
+    private String formataCPF(String cpf) {
+        return Pattern.compile("(\\d{3})(\\d{3})(\\d{3})(\\d{2})").matcher(cpf).replaceAll("$1.$2.$3-$4");
     }
 
     private String formataDataHora(java.time.LocalDateTime dataHora) {

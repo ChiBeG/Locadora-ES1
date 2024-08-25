@@ -11,7 +11,7 @@ import domain.Resultado;
  * Classe responsável pela construção do cliente e dos demais objetos relacionados a ele
  */
 public class ClienteBuilder {
-	private Long cpf;
+	private String cpf;
 	private String nome;
 	private LocalDate dtNasc;
 	private String logradouro;
@@ -26,7 +26,7 @@ public class ClienteBuilder {
 	
 	public ClienteBuilder() {}
 	
-	public ClienteBuilder withCPF(Long cpf) {
+	public ClienteBuilder withCPF(String cpf) {
 		this.cpf = cpf;
 		return this;
 	}

@@ -21,14 +21,13 @@ public class LocarVeiculoPrt implements Presenter {
     @Override
     public void run() {
         
-        String placa; 
-        Long cpf;
+        String placa, cpf;
         
         List<Erro> erros;
         do {
             var data = view.readData();
             try {
-                cpf = Long.parseLong(data.cpf());
+                cpf = data.cpf();
             } catch (Exception e) {
                 cpf = null;
             }

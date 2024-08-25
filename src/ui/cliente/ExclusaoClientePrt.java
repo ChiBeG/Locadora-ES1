@@ -21,11 +21,11 @@ public class ExclusaoClientePrt implements Presenter {
     
     @Override
     public void run() {
-        Long cpf;
+        String cpf;
         List<Erro> erros;
         
         do {
-            cpf = Long.parseLong(view.readCPF());
+            cpf = view.readCPF();
             
             erros = controller.excluirClientePorCPF(cpf);
             

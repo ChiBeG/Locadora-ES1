@@ -29,7 +29,7 @@ public class ClienteDAO implements IClienteDAO {
 			var df = DateTimeFormatter.ofPattern("yyyyMMdd");
 			
 			stmt.setString(1,  cliente.getId());
-			stmt.setLong(2,    cliente.getCpf().valor);
+			stmt.setString(2,    cliente.getCpf().valor);
 			stmt.setString(3,  cliente.getNome());
 			stmt.setString(4,  df.format(cliente.getDtNasc()));
 			stmt.setString(5,  cliente.getEndereco().getLogradouro());
@@ -65,7 +65,7 @@ public class ClienteDAO implements IClienteDAO {
 			// Define os valores dos parâmetros
 			var df = DateTimeFormatter.ofPattern("yyyyMMdd");
 				
-			stmt.setLong(1,    cliente.getCpf().valor);
+			stmt.setString(1,    cliente.getCpf().valor);
 			stmt.setString(2,  cliente.getNome());
 			stmt.setString(3,  df.format(cliente.getDtNasc()));
 			stmt.setString(4,  cliente.getEndereco().getLogradouro());
@@ -144,7 +144,7 @@ public class ClienteDAO implements IClienteDAO {
 	 * @throws SQLException Exceção em caso de problemas no acesso ao BD
 	 */
 	@Override
-	public ClienteDTO findByCPF(Long cpf) throws SQLException  {
+	public ClienteDTO findByCPF(String cpf) throws SQLException  {
 		
 		// Abre uma conexão com o BD
 		// Cria um statement
@@ -152,7 +152,7 @@ public class ClienteDAO implements IClienteDAO {
 			 var stmt = conn.prepareStatement("select * from clientes where cpf = ?")) {
 			
 			// Define o CPF do comando
-			stmt.setLong(1, cpf);
+			stmt.setString(1, cpf);
 			
 			// Executa o comando que retorna um ResultSet
 			try (var rs = stmt.executeQuery()) {

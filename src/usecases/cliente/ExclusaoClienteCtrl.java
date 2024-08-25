@@ -18,7 +18,7 @@ public class ExclusaoClienteCtrl {
     }
 
     
-    public List<Erro> excluirClientePorCPF(Long cpf) {
+    public List<Erro> excluirClientePorCPF(String cpf) {
         try {
             
             Cliente cliente = repo.findByCPF(cpf);

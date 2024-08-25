@@ -25,7 +25,8 @@ public class CadastroClientePrt implements Presenter {
 	
 	@Override
 	public void run() {
-		Long cpf, cep, numeroTel;
+		String cpf; 
+		Long cep, numeroTel;
 		Integer ddd;
 		LocalDate dtNasc;
 		List<Erro> erros;
@@ -38,7 +39,7 @@ public class CadastroClientePrt implements Presenter {
 			// 2 - Converte os dados
 			
 			try {
-				cpf = Long.parseLong(data.cpf());
+				cpf = data.cpf();
 			}
 			catch(Exception ex) {
 				cpf = null;
