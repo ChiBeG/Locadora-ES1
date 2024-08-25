@@ -38,6 +38,16 @@ public class VeiculoRepository implements Repository{
         return null;
     }
 
+        public Veiculo findById(String id) throws SQLException{
+
+        var dto = dao.findById(id);
+
+        if (dto != null)
+            return create(dto);
+
+        return null;
+    }
+
     public void add (Veiculo veiculo) throws SQLException{
         if (veiculo.getId() == null){
             veiculo.setId(UUID.randomUUID().toString());

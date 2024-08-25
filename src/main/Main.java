@@ -11,7 +11,7 @@ public class Main {
 	
 	// Constantes para o DRIVER e STRING DE CONEXÃO do BD
     private static final String DRIVER = "org.sqlite.JDBC";
-    private static final String CONEXAO = "jdbc:sqlite:D:\\Pedro\\Documents\\Eclipse Projects\\Locadora\\locadora.db";
+    private static final String CONEXAO = "jdbc:sqlite:/home/gb/Documents/GitHub/Locadora-ES1/locadora.db";
 
 	public static void main(String[] args) {
 		

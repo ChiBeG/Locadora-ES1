@@ -58,6 +58,18 @@ public class ClienteRepository implements Repository {
 		return null;
 	}
 
+	public Cliente findById(String id) throws SQLException  {
+		// Busca o cliente no repositório
+		var dto = dao.findById(id);
+		
+		// Se existe, converte o DTO em cliente e retorna
+		if (dto != null)
+			return create(dto);
+		
+		// Se não existe, retorna nulo
+		return null;
+	}
+
 	/**
 	 * Adiciona/atualiza um cliente no repositório
 	 * 
